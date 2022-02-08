@@ -12,6 +12,7 @@ import com.example.shoppinglist.entities.ShopingListNames
 @Database (entities = [LibraryItem::class, NoteItem::class,
     ShopingListItem::class, ShopingListNames::class], version = 1)
 abstract class MainDataBase : RoomDatabase() {
+    abstract fun getDao(): Dao
 
     companion object{
         @Volatile
