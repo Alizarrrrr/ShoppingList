@@ -10,6 +10,9 @@ class MainViewModel(dataBase: MainDataBase): ViewModel() {
     fun insertNote(note: NoteItem) = viewModelScope.launch {
         dao.insertNote(note)
     }
+    fun updateNote(note: NoteItem) = viewModelScope.launch {
+        dao.updateNote(note)
+    }
     fun deleteNote(id: Int) = viewModelScope.launch {
         dao.deleteNote(id)
     }
