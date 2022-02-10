@@ -7,4 +7,16 @@
 
     <string name="title_hint">Title</string>
     <string name="Description">Description</string>
+
+    <string name="new_list">New list name</string>
+    <string name="list_name">List name</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="create_list">Create list</string>
+    <string name="delete_alert">Delete</string>
+
+    <string name="delete_item">Do you want delete this item?</string>
+
+    <string name="cancel">Cancel</string>
+
+
 </resources>
