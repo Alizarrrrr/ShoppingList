@@ -1,14 +1,18 @@
 package com.example.shoppinglist.activities
 
 import android.content.Intent
+import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Spannable
+import android.text.style.StyleSpan
 import android.view.Menu
 import android.view.MenuItem
 import com.example.shoppinglist.R
 import com.example.shoppinglist.databinding.ActivityNewNoteBinding
 import com.example.shoppinglist.entities.NoteItem
 import com.example.shoppinglist.fragments.NoteFragment
+import com.example.shoppinglist.utils.HtmlManager
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -36,7 +40,7 @@ class NewNoteActivity : AppCompatActivity() {
 
     private fun fillNote() = with(binding){
         edTitle.setText(note?.title)
-        edDescription.setText(note?.content)
+        edDescription.setText(HtmlManager.getFromHtml(note?.content!!).trim())
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -52,8 +56,27 @@ class NewNoteActivity : AppCompatActivity() {
 
         } else if(item.itemId == android.R.id.home){
             finish()
+        }else if(item.itemId == R.id.id_bold){
+            setBoldForSelectedText()
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun setBoldForSelectedText() = with(binding){
+        val startPos = edDescription.selectionStart
+        val endPos = edDescription.selectionEnd
+
+        val styles = edDescription.text.getSpans(startPos, endPos, StyleSpan::class.java)
+        var boldStyle: StyleSpan? = null
+        if(styles.isNotEmpty()){
+            edDescription.text.removeSpan(styles[0])
+        } else{
+            boldStyle = StyleSpan(Typeface.BOLD)
+        }
+
+        edDescription.text.setSpan(boldStyle, startPos, endPos, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        edDescription.text.trim()
+        edDescription.setSelection(startPos)
     }
 
     private fun setMainResult(){
@@ -76,7 +99,7 @@ class NewNoteActivity : AppCompatActivity() {
     private fun updateNote(): NoteItem? = with(binding){
         return note?.copy(
             title = edTitle.text.toString(),
-            content = edDescription.text.toString()
+            content = HtmlManager.toHtml(edDescription.text)
         )
     }
 
@@ -84,7 +107,7 @@ class NewNoteActivity : AppCompatActivity() {
         return  NoteItem(
             null,
             binding.edTitle.text.toString(),
-            binding.edDescription.text.toString(),
+            HtmlManager.toHtml(binding.edDescription.text),
             getCurrentTime(),
             ""
         )
