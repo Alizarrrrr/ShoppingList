@@ -12,6 +12,7 @@
         android:theme="@style/Theme.ShoppingList">
         <activity
             android:name=".activities.NewNoteActivity"
+            android:windowSoftInputMode="stateVisible|adjustResize"
             android:exported="false" />
         <activity
             android:name=".activities.MainActivity"
