@@ -43,7 +43,7 @@ class ShopListNamesFragment : BaseFragment(), ShopListNameAdapter.Listener {
                mainViewModel.insertShopListName(shopListName)
            }
 
-       })
+       }, "")
 
     }
 
@@ -100,7 +100,17 @@ class ShopListNamesFragment : BaseFragment(), ShopListNameAdapter.Listener {
         })
     }
 
-    override fun onClickItem(note: ShoppingListName) {
-        TODO("Not yet implemented")
+    override fun editListName(shopListName: ShoppingListName) {
+        NewListDialog.showDialog(activity as AppCompatActivity, object : NewListDialog.Listener{
+            override fun onClick(name: String) {
+
+                mainViewModel.updateListName(shopListName.copy(name = name))
+            }
+
+        }, shopListName.name)
+    }
+
+    override fun onClickItem(shopListName: ShoppingListName) {
+
     }
 }

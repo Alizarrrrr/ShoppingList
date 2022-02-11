@@ -37,6 +37,9 @@ class ShopListNameAdapter(private val listener: Listener) : ListAdapter<Shopping
             imDelete.setOnClickListener{
                 listener.deleteItem(shopListNameItem.id!!)
             }
+            imEdit.setOnClickListener{
+                listener.editListName(shopListNameItem)
+            }
 
         }
         companion object{
@@ -61,7 +64,8 @@ class ShopListNameAdapter(private val listener: Listener) : ListAdapter<Shopping
 
     interface Listener{
         fun deleteItem(id: Int)
-        fun onClickItem(note: ShoppingListName)
+        fun editListName(shopListName: ShoppingListName)
+        fun onClickItem(shopListName: ShoppingListName)
     }
 
 
