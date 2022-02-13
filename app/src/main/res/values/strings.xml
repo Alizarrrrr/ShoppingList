@@ -19,6 +19,9 @@
     <string name="cancel">Cancel</string>
     <string name="update">Update</string>
     <string name="update_name_list">Update list name</string>
+    <string name="update_list_item">Update list item</string>
+    <string name="hint_item_info">Item info</string>
+    <string name="hint_item_name">Item name</string>
 
 
 </resources>
