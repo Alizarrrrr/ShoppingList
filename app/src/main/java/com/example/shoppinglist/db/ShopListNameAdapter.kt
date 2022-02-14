@@ -1,8 +1,11 @@
 package com.example.shoppinglist.db
 
+import android.content.Context
+import android.content.res.ColorStateList
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 
@@ -26,7 +29,13 @@ class ShopListNameAdapter(private val listener: Listener) : ListAdapter<Shopping
         private val binding = ListNameItemBinding.bind(view)
         fun setData(shopListNameItem: ShoppingListNameItem, listener: Listener) = with(binding){
             tvListName.text = shopListNameItem.name
-
+            val counterText = "${shopListNameItem.checkItemCounter}/${shopListNameItem.allItemCounter}"
+            tvCounter.text = counterText
+            pBar.max =shopListNameItem.allItemCounter
+            pBar.progress = shopListNameItem.checkItemCounter
+            val colorState = ColorStateList.valueOf(getProgressColorState(shopListNameItem, binding.root.context))
+            pBar.progressTintList = colorState
+            counterCard.backgroundTintList = colorState
             tvTime.text = shopListNameItem.time
             itemView.setOnClickListener{
                 listener.onClickItem(shopListNameItem)
@@ -39,6 +48,17 @@ class ShopListNameAdapter(private val listener: Listener) : ListAdapter<Shopping
             }
 
         }
+
+        private fun getProgressColorState(item: ShoppingListNameItem, context: Context): Int{
+            return  if(item.checkItemCounter == item.allItemCounter){
+                ContextCompat.getColor(context, R.color.green_main)
+            } else{
+                ContextCompat.getColor(context, R.color.red_main)
+            }
+
+        }
+
+
         companion object{
             fun create(parent: ViewGroup): ItemHolder{
                 return ItemHolder(

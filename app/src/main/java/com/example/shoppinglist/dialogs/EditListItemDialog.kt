@@ -3,6 +3,7 @@ package com.example.shoppinglist.dialogs
 import android.app.AlertDialog
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import com.example.shoppinglist.R
 import com.example.shoppinglist.databinding.EditListItemDialogBinding
 import com.example.shoppinglist.databinding.NewListDialogBinding
@@ -17,6 +18,7 @@ object EditListItemDialog {
         binding.apply {
             edName.setText(item.name)
             edInfo.setText(item.itemInfo)
+            if(item.itemType == 1) edInfo.visibility = View.GONE
             bUpdate.setOnClickListener {
                 if(edName.text.toString().isNotEmpty()){
                    // val itemInfo = if(edInfo.text.toString().isEmpty() null else edInfo.text.toString()

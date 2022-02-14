@@ -61,6 +61,18 @@ class ShopListItemAdapter(private val listener: Listener) : ListAdapter<ShopList
         }
         fun setLibraryData(shopListItem: ShopListItem, listener: Listener) {
             val binding = ShopLibraryListItemBinding.bind(view)
+            binding.apply {
+                tvName.text = shopListItem.name
+                imEdit.setOnClickListener{
+                    listener.onClickItem(shopListItem, EDIT_LIBRARY_ITEM)
+                }
+                imDelete.setOnClickListener{
+                    listener.onClickItem(shopListItem, DELETE_LIBRARY_ITEM)
+                }
+                itemView.setOnClickListener {
+                    listener.onClickItem(shopListItem, ADD)
+                }
+            }
         }
         private fun setPaintFlagAndColor(binding: ShopListItemBinding){
             binding.apply {
@@ -120,6 +132,10 @@ class ShopListItemAdapter(private val listener: Listener) : ListAdapter<ShopList
     companion object{
         const val EDIT = 0
         const val CHECK_BOX = 1
+        const val EDIT_LIBRARY_ITEM = 2
+        const val DELETE_LIBRARY_ITEM = 3
+        const val ADD = 4
+
     }
 
 
