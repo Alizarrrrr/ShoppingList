@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/general">
+
+        <ListPreference
+            android:defaultValue="1"
+            android:entries="@array/note_style_array"
+            android:entryValues="@array/note_style_values"
+            android:icon="@drawable/ic_style"
+            android:key="note_style_key"
+            android:title="@string/chose_note_style" />
+        <ListPreference
+            android:defaultValue="1"
+            android:entries="@array/time_format_array"
+            android:entryValues="@array/time_format_values"
+            android:icon="@drawable/ic_time_format"
+            android:key="list_preference_1"
+            android:title="@string/chose_time_format" />
+        <Preference
+            android:icon="@drawable/ic_remove_ads"
+            android:summary="@string/remove_ads_summary"
+            android:title="@string/remove_ads" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/theme_settings">
+
+        <ListPreference
+            android:defaultValue="1"
+            android:entries="@array/chose_theme_array"
+            android:entryValues="@array/chose_theme_value"
+            android:key="theme_key"
+            android:title="@string/chose_theme"
+            android:icon="@drawable/ic_theme_style"
+            />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/note_text_settings">
+
+        <ListPreference
+            android:defaultValue="1"
+            android:entries="@array/title_text_size_array"
+            android:entryValues="@array/title_text_size_value"
+            android:key="title_size_key"
+            android:title="@string/title_text_size"
+            android:icon="@drawable/ic_title_size"
+            />
+        <ListPreference
+            android:defaultValue="1"
+            android:entries="@array/content_text_size_array"
+            android:entryValues="@array/content_text_size_value"
+            android:key="content_size_key"
+            android:title="@string/content_text_size"
+            android:icon="@drawable/ic_content_size"
+            />
+    </PreferenceCategory>
+</PreferenceScreen>
