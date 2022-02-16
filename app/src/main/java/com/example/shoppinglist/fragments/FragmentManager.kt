@@ -1,5 +1,6 @@
 package com.example.shoppinglist.fragments
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import com.example.shoppinglist.R
 
@@ -12,4 +13,5 @@ object FragmentManager {
         transaction.commit()
         currentFrag = newFrag
     }
+
 }

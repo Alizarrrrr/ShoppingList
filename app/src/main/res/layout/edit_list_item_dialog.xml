@@ -26,7 +26,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:text="@string/update_list_item"
-                android:textColor="@color/black"
+                android:textColor="@color/mblack"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
