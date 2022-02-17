@@ -32,8 +32,10 @@ class SettingsActivity : AppCompatActivity() {
     private fun getSelectedThem(): Int{
         return if(defPref.getString("theme_key", "blue") == "blue"){
             R.style.Theme_ShoppingList
+            R.style.Theme_EditBlue
         } else{
             R.style.Theme_EditRed
+            R.style.Theme_NewNoteRed
         }
     }
 }

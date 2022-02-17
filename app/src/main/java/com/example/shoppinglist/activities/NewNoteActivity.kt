@@ -31,6 +31,7 @@ import java.util.*
 class NewNoteActivity : AppCompatActivity() {
     private lateinit var binding: ActivityNewNoteBinding
     private lateinit var defPref: SharedPreferences
+    private var currentTheme = ""
     private var note: NoteItem? = null
     private var pref: SharedPreferences? = null
 
@@ -252,8 +253,10 @@ class NewNoteActivity : AppCompatActivity() {
     private fun getSelectedThem(): Int{
         return if(defPref.getString("theme_key", "blue") == "blue"){
             R.style.Theme_ShoppingList
+            R.style.Theme_EditBlue
         } else{
             R.style.Theme_EditRed
+            R.style.Theme_NewNoteRed
         }
     }
 }
