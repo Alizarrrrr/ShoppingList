@@ -47,6 +47,8 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
     implementation 'androidx.preference:preference-ktx:1.2.0'
 
+    implementation 'com.google.android.gms:play-services-ads:20.5.0' //ADS
+
     //end
 
     implementation 'androidx.appcompat:appcompat:1.4.1'
