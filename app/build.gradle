@@ -48,6 +48,7 @@ dependencies {
     implementation 'androidx.preference:preference-ktx:1.2.0'
 
     implementation 'com.google.android.gms:play-services-ads:20.5.0' //ADS
+    implementation 'com.android.billingclient:billing:4.0.0' //ADS
 
     //end
 

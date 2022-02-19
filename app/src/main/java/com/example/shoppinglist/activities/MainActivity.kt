@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity(), NewListDialog.Listener {
     private var currentTheme = ""
     private var iAd: InterstitialAd? = null
     private var adShowCounter = 0
-    private var adShowCounterMax = 3
+    private var adShowCounterMax = 5
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
